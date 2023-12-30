@@ -15,8 +15,8 @@ echo "Deploying application ..."
     php artisan migrate --force
 
     # Build assets
-    npm install
-    npm run build
+    npm install --ignore-engines
+    npm run build --ignore-engines
 
     # Clear cache
     php artisan clear-compiled

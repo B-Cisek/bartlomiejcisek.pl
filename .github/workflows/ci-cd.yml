@@ -69,7 +69,6 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          password: ${{ secrets.SSH_PASSWORD }}
           target: /var/www/bartlomiejcisek.pl
           source: "./,!vendor,!node_modules,!.git"
 
@@ -79,6 +78,5 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           port: ${{ secrets.SSH_PORT }}
-          password: ${{ secrets.SSH_PASSWORD }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: 'cd /var/www/bartlomiejcisek.pl && chmod +x deploy.sh && ./deploy.sh'
