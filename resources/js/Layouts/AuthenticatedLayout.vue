@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import {computed, ref} from 'vue';
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
-import { Link } from '@inertiajs/vue3';
+import {Link, usePage} from '@inertiajs/vue3';
 
 const showingNavigationDropdown = ref(false);
+const page = usePage();
+const isAdmin = computed(() => page.props.auth.user.is_admin);
 </script>
 
 <template>
@@ -32,6 +34,12 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </NavLink>
+                                <NavLink :href="route('storage')" :active="route().current('storage')">
+                                    Storage
+                                </NavLink>
+                                <NavLink v-if="isAdmin" :href="route('users')" :active="route().current('users')">
+                                    Users
+                                </NavLink>
                             </div>
                         </div>
 
@@ -45,7 +53,7 @@ const showingNavigationDropdown = ref(false);
                                                 type="button"
                                                 class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150"
                                             >
-                                                {{ $page.props.auth.user.name }}
+                                                {{ $page.props.auth.user.username }}
 
                                                 <svg
                                                     class="ms-2 -me-0.5 h-4 w-4"

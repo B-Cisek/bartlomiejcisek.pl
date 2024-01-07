@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\UploadFile\DiscordUploadFileManager;
+use App\Services\UploadFile\UploadFileManagerInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\URL;
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(UploadFileManagerInterface::class, DiscordUploadFileManager::class);
     }
 
     /**
