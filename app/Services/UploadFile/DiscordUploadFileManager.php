@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Services\UploadFile;
 
 use App\Enums\ExtensionType;
-use App\Jobs\UploadFileToDiscord;
+use App\Jobs\Storage\UploadFileToDiscord;
 use App\Models\File;
 use App\Services\FileSplitter\FileSize;
 use App\Services\FileSplitter\FileSplitterService;

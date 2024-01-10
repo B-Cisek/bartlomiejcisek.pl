@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UploadFileController;
+use App\Http\Controllers\Profile\ProfileController;
+use App\Http\Controllers\Storage\UploadFileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;

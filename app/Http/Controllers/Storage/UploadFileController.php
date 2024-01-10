@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Storage;
 
 use App\Enums\AlertType;
-use App\Http\Requests\UploadFileRequest;
-use App\Services\UploadFile\UploadFileManager;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Sotrage\UploadFileRequest;
 use App\Services\UploadFile\UploadFileManagerInterface;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
@@ -31,17 +31,11 @@ class UploadFileController extends Controller
         try {
             $this->fileManager->upload($attributes['file']);
         } catch (\Exception $e) {
-            Log::error($e->getMessage());
+            Log::error($e->getMessage(), ['class' => __CLASS__]);
 
-            return back()->with([
-                'alertType' => AlertType::DANGER,
-                'alertMessage' => 'Uploading file error'
-            ]);
+            return back()->with(self::message(AlertType::DANGER, 'Uploading file error'));
         }
 
-        return back()->with([
-            'alertType' => AlertType::SUCCESS,
-            'alertMessage' => 'Uploading file has started'
-        ]);
+        return back()->with(self::message(AlertType::SUCCESS, 'Uploading file has started'));
     }
 }
