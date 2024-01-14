@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * @property string file_name
- * @property \Ramsey\Uuid\Uuid file_id
+ * @property string chunk_name
+ * @property string discord_message_id
+ * @property string url
+ * @property string file_id
  * @property \DateTime uploaded_at
  * @property \DateTime deleted_at
  */
@@ -16,7 +18,7 @@ class Chunk extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['file_name', 'file_id', 'uploaded_at', 'deleted_at'];
+    protected $guarded = [];
 
     protected $casts = [
         'uploaded_at' => 'datetime',

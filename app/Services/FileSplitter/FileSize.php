@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Services\FileSplitter;
 
-final class FileSize
+final readonly class FileSize
 {
-    private readonly int $sizeInBytes;
+    private int $sizeInBytes;
 
     public function __construct(int $sizeInBytes)
     {
@@ -15,6 +15,11 @@ final class FileSize
         }
 
         $this->sizeInBytes = $sizeInBytes;
+    }
+
+    public function getSizeInBytes(): int
+    {
+        return $this->sizeInBytes;
     }
 
     public function getSizeInKilobytes(): float

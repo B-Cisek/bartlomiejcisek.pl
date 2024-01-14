@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('file_name');
+            $table->string('discord_message_id')->nullable();
+            $table->string('url')->nullable();
             $table->string('origin_file_name');
             $table->unsignedBigInteger('file_size');
             $table->enum('extension', ExtensionType::getValues());

@@ -2,8 +2,14 @@
 
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\Storage\UploadFileController;
+use App\Libs\Api\Clients\Discord\Actions\CreateMessage;
+use Faker\Provider\Image;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\Client\PendingRequest;
+use Illuminate\Http\Client\Pool;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 
@@ -14,6 +20,10 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
+});
+
+Route::get('test', function () {
+
 });
 
 Route::get('/phpinfo', fn() => phpinfo())->middleware(['auth', 'admin'])->name('phpInfo');

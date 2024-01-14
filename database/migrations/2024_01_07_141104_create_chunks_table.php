@@ -14,7 +14,8 @@ return new class extends Migration
     {
         Schema::create('chunks', function (Blueprint $table) {
             $table->id();
-            $table->string('file_name');
+            $table->string('chunk_name');
+            $table->string('url')->nullable();
             $table->foreignUuid('file_id')->constrained();;
             $table->timestamp('uploaded_at');
             $table->timestamp('deleted_at')->nullable();

@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Storage;
 use App\Enums\AlertType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Sotrage\UploadFileRequest;
+use App\Models\File;
 use App\Services\UploadFile\UploadFileManagerInterface;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
@@ -21,15 +22,19 @@ class UploadFileController extends Controller
 
     public function index(): Response
     {
-        return Inertia::render('Storage/Index');
+        return Inertia::render('Storage/Index', [
+            'recentFiles' => File::with('user')->orderBy('uploaded_at', 'desc')->take(10)->get()
+        ]);
     }
 
     public function store(UploadFileRequest $request): RedirectResponse
     {
-        $attributes = $request->validated();
+        $file = $request->file('file');
+        /** save the file temporarily */
+        $file->store('temp');
 
         try {
-            $this->fileManager->upload($attributes['file']);
+            $this->fileManager->upload($file);
         } catch (\Exception $e) {
             Log::error($e->getMessage(), ['class' => __CLASS__]);
 
