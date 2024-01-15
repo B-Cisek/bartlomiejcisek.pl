@@ -7,6 +7,10 @@ import CardFiles from "@/Components/CardFiles.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 import Modal from "@/Components/Modal.vue";
 import SecondaryButton from "@/Components/SecondaryButton.vue";
+import Button from "@/Components/Button.vue";
+import {Type, useToastsStore} from "@/stores/toasts";
+
+const {add} = useToastsStore();
 
 defineProps<{
     recentFiles: object;
@@ -19,7 +23,10 @@ const form = useForm<{ file_name: string, file: File | null }>({
 
 function submit(): void {
     form.post(route('storage.store'), {
-        onSuccess: () => closeModal()
+        onSuccess: () => {
+            closeModal()
+            add('File has been uploaded', Type.SUCCESS)
+        }
     })
 }
 
@@ -49,19 +56,29 @@ const closeModal = () => {
                 <div class="w-full">
                     <div class="grid 2xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-6">
                         <div class="2xl:col-span-4 sm:col-span-2">
-                            <div class="flex items-center justify-between gap-4">
-                                <PrimaryButton @click="uploadModal = true">Upload File</PrimaryButton>
+                            <div class="flex items-center justify-end gap-4">
+                                <Button @click="uploadModal = true">Upload File</Button>
                             </div>
                         </div>
                         <CardFiles/>
                         <RecentFiles :files="recentFiles"/>
-
                     </div>
                 </div>
             </div>
         </div>
         <Modal :show="uploadModal" @close="closeModal">
             <div class="p-5">
+                <div class="flex items-center justify-between pb-6 rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        Upload Files
+                    </h3>
+                    <button @click="closeModal" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"></path>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
                 <form @submit.prevent="submit">
                     <div class="flex items-center justify-center w-full">
                         <label for="dropzone-file"

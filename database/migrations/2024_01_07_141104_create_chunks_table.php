@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('chunks', function (Blueprint $table) {
             $table->id();
             $table->string('chunk_name');
+            $table->string('discord_message_id')->nullable();
             $table->string('url')->nullable();
             $table->foreignUuid('file_id')->constrained();;
             $table->timestamp('uploaded_at');

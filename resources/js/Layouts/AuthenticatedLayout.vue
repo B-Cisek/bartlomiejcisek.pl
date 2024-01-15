@@ -6,6 +6,7 @@ import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import {Link, usePage} from '@inertiajs/vue3';
+import ToastList from "@/Components/ToastList.vue";
 
 const showingNavigationDropdown = ref(false);
 const page = usePage();
@@ -13,6 +14,7 @@ const isAdmin = computed(() => page.props.auth.user.is_admin);
 </script>
 
 <template>
+    <ToastList />
     <div>
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             <nav class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">

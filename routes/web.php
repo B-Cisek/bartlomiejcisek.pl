@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/storage', [UploadFileController::class, 'index'])->name('storage');
     Route::post('/storage', [UploadFileController::class, 'store'])->name('storage.store');
+    Route::delete('/storage/{file}', [UploadFileController::class, 'destroy'])->name('storage.destroy');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {

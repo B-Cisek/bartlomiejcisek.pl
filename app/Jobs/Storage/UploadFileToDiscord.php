@@ -11,6 +11,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class UploadFileToDiscord implements ShouldQueue
@@ -41,20 +42,21 @@ class UploadFileToDiscord implements ShouldQueue
 
             $obj = $response->object();
 
-            $attributes = [
-                'discord_message_id' => $obj->id,
-                'uploaded_at' => now(),
-            ];
-
-            if (count($this->fileNames) === 1) {
-                $attributes['url'] =  $obj->attachments[0]->url;
+            if (count($this->fileNames) == 1) {
+                $this->fileModel->update([
+                    'uploaded_at' => now(),
+                    'discord_message_id' => $obj->id,
+                    'url' => $obj->attachments[0]->url
+                ]);
+            } else {
+                $this->fileModel
+                    ->chunks()
+                    ->where('chunk_name', $path)
+                    ->update([
+                        'url' => $obj->attachments[0]->url,
+                        'discord_message_id' => $obj->id,
+                    ]);
             }
-
-            $this->fileModel->update($attributes);
-
-            $this->fileModel->chunks()->update([
-                'url' => $obj->attachments[0]->url
-            ]);
         }
 
         Storage::deleteDirectory('temp');
