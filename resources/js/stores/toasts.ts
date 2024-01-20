@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import {computed, ref, watch} from 'vue'
+import { ref } from 'vue'
 
 export enum Type {
     SUCCESS = 'success',
@@ -7,12 +7,22 @@ export enum Type {
     WARNING = 'warning'
 }
 
+export function typeFromString(type: string): Type {
+    switch (type) {
+        case 'success':
+            return Type.SUCCESS
+        case 'danger':
+            return Type.DANGER
+        case 'warning':
+            return Type.WARNING
+    }
+}
+
 interface Item {
     key: Symbol
     message: string
     type: Type
 }
-
 
 export const useToastsStore = defineStore('toasts', () => {
     const items = ref<Item[]>([]);

@@ -26,13 +26,20 @@ class File extends Model
 
     protected $guarded = [];
 
+    public $timestamps = false;
+
     protected $casts = [
         'extension' => ExtensionType::class,
         'uploaded_at' => 'datetime',
         'deleted_at' => 'datetime'
     ];
 
-    public $timestamps = false;
+    protected static function boot(): void
+    {
+        parent::boot();
+
+        static::creating(fn (File $model) => $model->user_id = auth()->id());
+    }
 
     public function chunks(): HasMany
     {

@@ -2,13 +2,14 @@
 
 namespace App\Jobs\Storage;
 
+use App\Libs\API\DiscordApi;
+use App\Models\Chunk;
+use App\Models\File;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Http\Client\Pool;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
 class DeleteFileFromDiscord implements ShouldQueue
@@ -27,12 +28,26 @@ class DeleteFileFromDiscord implements ShouldQueue
      */
     public function handle(): void
     {
-        $responses = Http::pool(fn (Pool $pool) => collect($this->messageIds)
-            ->map(fn (string $id) => $pool
-                ->timeout(60)
-                ->baseUrl(config('services.discord.base_url'))
-                ->withToken(config('services.discord.token'), 'Bot')
-                ->delete('channels/' . config('services.discord.channel_id') . '/messages/' . $id))
-        );
+        $responses = DiscordApi::deleteMessage($this->messageIds);
+
+        // TODO: refactor
+        if (count($this->messageIds) === 1) {
+            File::where('discord_message_id', $this->messageIds[0])->first()->update(['deleted_at' => now()]);
+        } else {
+            foreach ($this->messageIds as $id) {
+                $chunk = Chunk::where('discord_message_id', $id)->first();
+                $chunk->update(['deleted_at' => now()]);
+                $chunk->file()->update(['deleted_at' => now()]);
+            }
+        }
+
+        foreach ($responses as $response) {
+            if (! $response->noContent()) {
+                Log::error('Filed to delete files');
+                // TODO: handle
+            }
+        }
+
+        // TODO: end refactor
     }
 }

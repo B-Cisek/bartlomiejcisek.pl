@@ -21,7 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('file_size');
             $table->enum('extension', ExtensionType::getValues());
             $table->foreignIdFor(User::class)->constrained();
-            $table->timestamp('uploaded_at');
+            $table->timestamp('uploaded_at')->nullable();
             $table->timestamp('deleted_at')->nullable();
         });
     }

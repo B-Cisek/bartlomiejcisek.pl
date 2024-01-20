@@ -16,7 +16,7 @@ class FileSplitterService implements FileSplitterInterface
 
     public function __construct(
         private readonly File $fileModel,
-        private readonly ?string $temporaryFilename,
+        private readonly string $temporaryFilename,
         private readonly int $chunkSize = 25
     )
     {
@@ -102,8 +102,7 @@ class FileSplitterService implements FileSplitterInterface
 
         foreach ($this->chunks as $chunk) {
             $this->fileModel->chunks()->create([
-                'chunk_name' => $chunk,
-                'uploaded_at' => now()
+                'chunk_name' => $chunk
             ]);
         }
     }

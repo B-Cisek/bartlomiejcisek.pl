@@ -1,9 +1,20 @@
 <script setup lang="ts">
 import ToastListItem from "@/Components/ToastListItem.vue";
-import {Type, useToastsStore} from '@/stores/toasts';
+import {Type, typeFromString, useToastsStore} from '@/stores/toasts';
+import {watch} from "vue";
+import {usePage} from "@inertiajs/vue3";
 
-const { remove, items } = useToastsStore();
+const { remove, items, add } = useToastsStore();
 
+watch(() => usePage().props.flash.value, (next) => {
+    add(next.alertMessage, typeFromString(next.alertType));
+});
+
+watch(() => usePage().props.errors, (fields) => {
+    for (const [key, value] of Object.entries(fields)) {
+        add(value, Type.DANGER)
+    }
+});
 </script>
 
 <template>

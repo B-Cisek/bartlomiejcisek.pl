@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('discord_message_id')->nullable();
             $table->string('url')->nullable();
             $table->foreignUuid('file_id')->constrained();;
-            $table->timestamp('uploaded_at');
+            $table->timestamp('uploaded_at')->nullable();
             $table->timestamp('deleted_at')->nullable();
         });
     }
