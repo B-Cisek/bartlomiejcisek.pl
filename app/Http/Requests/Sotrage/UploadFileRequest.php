@@ -16,7 +16,7 @@ class UploadFileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'file' => ['required', File::types(ExtensionType::getValues())]
+            'file' => ['required', File::types(ExtensionType::getValues())],
         ];
     }
 }

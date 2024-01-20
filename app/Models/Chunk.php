@@ -22,7 +22,7 @@ class Chunk extends Model
 
     protected $casts = [
         'uploaded_at' => 'datetime',
-        'deleted_at' => 'datetime'
+        'deleted_at' => 'datetime',
     ];
 
     public $timestamps = false;

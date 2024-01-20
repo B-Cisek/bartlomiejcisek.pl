@@ -32,7 +32,7 @@ class UploadFileToDiscord implements ShouldQueue
     {
         try {
             foreach ($this->fileNames as $key => $path) {
-                $file = fopen(storage_path('app/temp/' . $path), 'r');
+                $file = fopen(storage_path('app/temp/'.$path), 'r');
 
                 $object = DiscordApi::sendMessage($key, $file);
 
@@ -42,7 +42,7 @@ class UploadFileToDiscord implements ShouldQueue
                     $this->fileModel->update([
                         'uploaded_at' => now(),
                         'discord_message_id' => $object->id,
-                        'url' => $object->attachments[0]->url
+                        'url' => $object->attachments[0]->url,
                     ]);
                 } else {
                     $this->fileModel
@@ -51,7 +51,7 @@ class UploadFileToDiscord implements ShouldQueue
                         ->update([
                             'url' => $object->attachments[0]->url,
                             'discord_message_id' => $object->id,
-                            'uploaded_at' => now()
+                            'uploaded_at' => now(),
                         ]);
 
                     $this->fileModel->update(['uploaded_at' => now()]);

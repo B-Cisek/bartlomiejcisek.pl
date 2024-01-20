@@ -31,7 +31,7 @@ class File extends Model
     protected $casts = [
         'extension' => ExtensionType::class,
         'uploaded_at' => 'datetime',
-        'deleted_at' => 'datetime'
+        'deleted_at' => 'datetime',
     ];
 
     protected static function boot(): void

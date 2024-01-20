@@ -3,59 +3,56 @@ import { onMounted, ref } from 'vue';
 
 const props = defineProps({
     message: String,
-    type: String
+    type: String,
 });
 
 const emit = defineEmits(['remove']);
 
 const types = {
     danger: {
-        class:
-            'inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg',
-        borderColor: 'border-red-500'
+        class: 'inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg',
+        borderColor: 'border-red-500',
     },
     success: {
-        class:
-            'inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg',
-        borderColor: 'border-green-500'
+        class: 'inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg',
+        borderColor: 'border-green-500',
     },
     warning: {
-        class:
-            'inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-orange-500 bg-orange-100 rounded-lg',
-        borderColor: 'border-orange-500'
-    }
-}
+        class: 'inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-orange-500 bg-orange-100 rounded-lg',
+        borderColor: 'border-orange-500',
+    },
+};
 
-const currentStyles = ref(types.warning)
+const currentStyles = ref(types.warning);
 
 onMounted(() => {
     if (props.type === 'success') {
-        currentStyles.value = types.success
+        currentStyles.value = types.success;
     } else if (props.type === 'warning') {
-        currentStyles.value = types.warning
+        currentStyles.value = types.warning;
     } else {
-        currentStyles.value = types.danger
+        currentStyles.value = types.danger;
     }
-    setTimeout(() => emit('remove'), 7000)
-})
+    setTimeout(() => emit('remove'), 7000);
+});
 </script>
 
 <template>
     <div
         class="border border-1 flex items-center p-4 mb-4 text-gray-500 bg-white rounded-lg shadow"
         :class="[
-      props.type === 'success' ? types.success.borderColor : '',
-      props.type === 'danger' ? types.danger.borderColor : '',
-      props.type === 'warning' ? types.warning.borderColor : ''
-    ]"
+            props.type === 'success' ? types.success.borderColor : '',
+            props.type === 'danger' ? types.danger.borderColor : '',
+            props.type === 'warning' ? types.warning.borderColor : '',
+        ]"
         role="alert"
     >
         <div
             :class="[
-        props.type === 'success' ? types.success.class : '',
-        props.type === 'danger' ? types.danger.class : '',
-        props.type === 'warning' ? types.warning.class : ''
-      ]"
+                props.type === 'success' ? types.success.class : '',
+                props.type === 'danger' ? types.danger.class : '',
+                props.type === 'warning' ? types.warning.class : '',
+            ]"
         >
             <svg
                 v-if="props.type === 'success'"

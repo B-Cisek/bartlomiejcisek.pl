@@ -12,14 +12,14 @@ use Illuminate\Support\Facades\Process;
 class FileSplitterService implements FileSplitterInterface
 {
     private array $chunks = [];
+
     private string $storagePath;
 
     public function __construct(
         private readonly File $fileModel,
         private readonly string $temporaryFilename,
         private readonly int $chunkSize = 25
-    )
-    {
+    ) {
         $this->storagePath = storage_path('app/temp');
     }
 
@@ -53,7 +53,7 @@ class FileSplitterService implements FileSplitterInterface
             return $this->fileModel->origin_file_name;
         }
 
-        return $this->fileModel->origin_file_name . '.' . $this->fileModel->extension->value;
+        return $this->fileModel->origin_file_name.'.'.$this->fileModel->extension->value;
     }
 
     private function setChunks(): void
@@ -102,7 +102,7 @@ class FileSplitterService implements FileSplitterInterface
 
         foreach ($this->chunks as $chunk) {
             $this->fileModel->chunks()->create([
-                'chunk_name' => $chunk
+                'chunk_name' => $chunk,
             ]);
         }
     }

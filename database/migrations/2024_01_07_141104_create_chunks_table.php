@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\File;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,7 +16,7 @@ return new class extends Migration
             $table->string('chunk_name');
             $table->string('discord_message_id')->nullable();
             $table->string('url')->nullable();
-            $table->foreignUuid('file_id')->constrained();;
+            $table->foreignUuid('file_id')->constrained();
             $table->timestamp('uploaded_at')->nullable();
             $table->timestamp('deleted_at')->nullable();
         });

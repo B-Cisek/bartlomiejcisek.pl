@@ -15,7 +15,7 @@ class Controller extends BaseController
     {
         return [
             'alertType' => $type,
-            'alertMessage' => $message
+            'alertMessage' => $message,
         ];
     }
 }

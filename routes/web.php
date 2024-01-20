@@ -2,16 +2,9 @@
 
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\Storage\UploadFileController;
-use App\Libs\Api\Clients\Discord\Actions\CreateMessage;
-use Faker\Provider\Image;
 use Illuminate\Foundation\Application;
-use Illuminate\Http\Client\PendingRequest;
-use Illuminate\Http\Client\Pool;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
-
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -26,8 +19,8 @@ Route::get('test', function () {
 
 });
 
-Route::get('/phpinfo', fn() => phpinfo())->middleware(['auth', 'admin'])->name('phpInfo');
-Route::get('/dashboard', fn() => Inertia::render('Dashboard'))->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/phpinfo', fn () => phpinfo())->middleware(['auth', 'admin'])->name('phpInfo');
+Route::get('/dashboard', fn () => Inertia::render('Dashboard'))->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -40,9 +33,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/users', fn() => Inertia::render('Users'))->name('users');
+    Route::get('/users', fn () => Inertia::render('Users'))->name('users');
 });
-
-
 
 require __DIR__.'/auth.php';

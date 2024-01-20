@@ -12,6 +12,7 @@ use Exception;
 final class Bot
 {
     private static ?Bot $instance = null;
+
     private Discord $discord;
 
     private function __construct()

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { cva } from 'class-variance-authority'
-import { computed } from 'vue'
+import { cva } from 'class-variance-authority';
+import { computed } from 'vue';
 
 const props = defineProps({
     leftIcon: Function,
@@ -9,14 +9,15 @@ const props = defineProps({
     disabled: Boolean,
     as: {
         type: [String, Object],
-        default: 'button'
+        default: 'button',
     },
     intent: {
         type: String,
-        validator: (val: string) => ['primary', 'secondary', 'danger'].includes(val),
-        default: 'primary'
-    }
-})
+        validator: (val: string) =>
+            ['primary', 'secondary', 'danger'].includes(val),
+        default: 'primary',
+    },
+});
 
 const buttonClass = computed(() => {
     return cva(
@@ -25,19 +26,20 @@ const buttonClass = computed(() => {
             variants: {
                 intent: {
                     primary: 'text-white bg-indigo-600 hover:bg-indigo-500',
-                    secondary: 'text-white bg-gray-800 dark:bg-gray-200 dark:text-gray-800 hover:bg-gray-700 dark:hover:bg-white',
+                    secondary:
+                        'text-white bg-gray-800 dark:bg-gray-200 dark:text-gray-800 hover:bg-gray-700 dark:hover:bg-white',
                     danger: 'bg-red-700 text-white hover:bg-red-600',
                 },
                 disabled: {
-                    true: '!bg-gray-100 !text-gray-400 cursor-not-allowed'
-                }
-            }
-        }
+                    true: '!bg-gray-100 !text-gray-400 cursor-not-allowed',
+                },
+            },
+        },
     )({
         intent: props.intent,
-        disabled: props.disabled
-    })
-})
+        disabled: props.disabled,
+    });
+});
 </script>
 
 <template>
@@ -63,10 +65,16 @@ const buttonClass = computed(() => {
                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
             ></path>
         </svg>
-        <component :is="props.leftIcon" :class="['w-5 h-5 mr-2', props.loading && 'invisible']" />
+        <component
+            :is="props.leftIcon"
+            :class="['w-5 h-5 mr-2', props.loading && 'invisible']"
+        />
         <span :class="[props.loading && 'invisible']">
-      <slot />
-    </span>
-        <component :is="props.rightIcon" :class="['w-5 h-5 ml-2', props.loading && 'invisible']" />
+            <slot />
+        </span>
+        <component
+            :is="props.rightIcon"
+            :class="['w-5 h-5 ml-2', props.loading && 'invisible']"
+        />
     </component>
 </template>

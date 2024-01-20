@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Http;
 class DiscordApi
 {
     /**
-     * @param int $key
      * @param $file resource
      */
     public static function sendMessage(int $key, $file): object
@@ -20,7 +19,7 @@ class DiscordApi
             ->baseUrl(config('services.discord.base_url'))
             ->withToken(config('services.discord.token'), 'Bot')
             ->attach("files[{$key}]", $file)
-            ->post('channels/' . config('services.discord.channel_id') . '/messages');
+            ->post('channels/'.config('services.discord.channel_id').'/messages');
 
         return $response->object();
     }
@@ -32,7 +31,7 @@ class DiscordApi
                 ->timeout(60)
                 ->baseUrl(config('services.discord.base_url'))
                 ->withToken(config('services.discord.token'), 'Bot')
-                ->delete('channels/' . config('services.discord.channel_id') . '/messages/' . $id))
+                ->delete('channels/'.config('services.discord.channel_id').'/messages/'.$id))
         );
     }
 }
