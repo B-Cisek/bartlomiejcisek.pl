@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Button } from "@/components/ui/button.tsx";
+import {Particles} from "@/components/magicui/particles.tsx";
+import {useEffect, useState} from "react";
+import { useTheme } from "@/components/theme-provider"
+import {ModeToggle} from "@/components/mode-toggle.tsx";
 
 function App() {
-  const [count, setCount] = useState(0)
+    const { theme } = useTheme();
+    const [color, setColor] = useState("#ffffff");
+
+    useEffect(() => {
+        setColor(theme === "dark" ? "#ffffff" : "#000000");
+    }, [theme]);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Particles
+            className="absolute inset-0 z-0 min-h-screen w-full"
+            quantity={250}
+            ease={80}
+            color={color}
+            refresh
+        />
+      <div className="relative">
+          <Button>Test</Button>
+          <ModeToggle />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
 export default App
