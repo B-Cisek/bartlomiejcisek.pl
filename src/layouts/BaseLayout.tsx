@@ -14,16 +14,17 @@ function BaseLayout() {
 
   return (
     <>
-      <Particles
-        className="absolute inset-0 z-0 min-h-screen w-full"
-        quantity={250}
-        ease={80}
-        color={color}
-        refresh
-      />
-      <div className="container mx-auto relative">
+      <div className="relative min-h-screen">
+        <Particles
+          className="absolute inset-0 z-0 size-full"
+          quantity={250}
+          ease={80}
+          color={color}
+          size={0.8}
+          refresh
+        />
         <Navigation />
-        <main>
+        <main className="container mx-auto">
           <Outlet />
         </main>
       </div>

@@ -1,0 +1,50 @@
+{
+  "sections": {
+    "hero": {
+      "title": "Cześć, jestem Bartłomiej \uD83D\uDC4B",
+      "subtitle": "PHP Developer",
+      "buttons": {
+        "viewProjects": "Zobacz projekty",
+        "contact": "Kontakt"
+      }
+    },
+    "aboutMe": {
+      "title": "O mnie",
+      "content": "Jestem otwartym na nowe doświadczenia i ambitnym PHP developerem z ponad 2-letnim doświadczeniem w tworzeniu oraz zarządzaniu aplikacjami webowymi. Nieustannie dążę do rozwoju zawodowego, chętnie eksploruję nowe technologie i podejmuję ambitne wyzwania. Moim celem jest stałe poszerzanie kompetencji programistycznych oraz rozwój w kierunku wszechstronnego specjalisty w dziedzinie tworzenia oprogramowania."
+    },
+
+    "education": {
+      "title": "Edukacja",
+      "educationItems": [
+        {
+          "title": "Uniwersytet Rzeszowski",
+          "subtitle": "2019 - 2023",
+          "description": "Informatyka i Ekonometria (Inż.)"
+        },
+        {
+          "title": "Technikum Informatyczne",
+          "subtitle": "2014 - 2019",
+          "description": "Rzeszów"
+        }
+      ]
+    },
+    "experience": {
+      "title": "Doświadczenie",
+      "experienceItems": [
+        {
+          "title": "PHP Developer",
+          "subtitle": "ModulesGarden, Rzeszów (2022-11 - 2025-03)",
+          "description": "Tworzenie modułów do systemu WHMCS, Naprawianie błędów, Integracja z zewnętrznymi API"
+        },
+        {
+          "title": "Praktyka studencka - PHP Developer",
+          "subtitle": "Ideo Sp. z o.o, Rzeszów (2022-05 - 2022-07)",
+          "description": "Praca z frameworkiem Edito CMS"
+        }
+      ]
+    },
+    "skills": {
+      "title": "Umiejętności"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "sections": {
+    "hero": {
+      "title": "Hey, I'm Bartłomiej \uD83D\uDC4B",
+      "subtitle": "PHP Developer",
+      "buttons": {
+        "viewProjects": "View Projects",
+        "contact": "Contact"
+      }
+    },
+    "aboutMe": {
+      "title": "About Me",
+      "content": "I am an open-minded and ambitious PHP developer with over two years of experience in developing and managing web applications. I am constantly striving for professional growth, eagerly exploring new technologies, and taking on challenging projects. My goal is to continuously expand my programming skills and develop into a versatile software development specialist."
+    },
+    "education": {
+      "title": "Education",
+      "educationItems": [
+        {
+          "title": "University of Rzeszów",
+          "subtitle": "2019 - 2023",
+          "description": "Bachelor's degree in Computer Science and Econometrics"
+        },
+        {
+          "title": "Technical High School, specialization: Information Technology",
+          "subtitle": "2014 - 2019",
+          "description": "Rzeszów"
+        }
+      ]
+    },
+    "experience": {
+      "title": "Experience",
+      "experienceItems": [
+        {
+          "title": "PHP Developer",
+          "subtitle": "ModulesGarden, Rzeszów (2022-11 - 2025-03)",
+          "description": "Creating modules for the WHMCS system,Fixing bugs, Integrating with external APIs"
+        },
+        {
+          "title": "Software Developer",
+          "subtitle": "Ideo Sp. z o.o, Rzeszów (2022-05 - 2022-07)",
+          "description": "Working with the Edito CMS framework"
+        }
+      ]
+    },
+    "skills": {
+      "title": "Technical Skills"
+    }
+  }
+}
