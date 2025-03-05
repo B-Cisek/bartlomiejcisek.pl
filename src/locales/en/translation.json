@@ -36,7 +36,7 @@
           "description": "Creating modules for the WHMCS system,Fixing bugs, Integrating with external APIs"
         },
         {
-          "title": "Software Developer",
+          "title": "Student Internship - PHP Developer",
           "subtitle": "Ideo Sp. z o.o, Rzeszów (2022-05 - 2022-07)",
           "description": "Working with the Edito CMS framework"
         }
@@ -44,6 +44,19 @@
     },
     "skills": {
       "title": "Technical Skills"
+    }
+  },
+  "contact": {
+    "title": "Get in touch",
+    "subtitle": "Have a question or want to work together?<br/>Fill out the form below or send me an email and I'll get back to you as soon as possible.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "message": "Message",
+      "messagePlaceholder": "Enter your message",
+      "submit": "Send"
     }
   }
 }

@@ -46,5 +46,18 @@
     "skills": {
       "title": "Umiejętności"
     }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Masz pytanie lub chcesz współpracować?<br/>Wypełnij poniższy formularz, a ja skontaktuję się z Tobą tak szybko, jak to możliwe.",
+    "form": {
+      "name": "Nazwa",
+      "namePlaceholder": "Wpisz swoją nazwę",
+      "email": "Email",
+      "emailPlaceholder": "Wpisz swój email",
+      "message": "Wiadomość",
+      "messagePlaceholder": "Wpisz swoją wiadomość",
+      "submit": "Wyślij"
+    }
   }
 }

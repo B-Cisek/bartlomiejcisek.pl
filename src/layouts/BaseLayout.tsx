@@ -13,22 +13,22 @@ function BaseLayout() {
   }, [theme]);
 
   return (
-    <>
-      <div className="relative min-h-screen">
-        <Particles
-          className="absolute inset-0 z-0 size-full"
-          quantity={250}
-          ease={80}
-          color={color}
-          size={0.8}
-          refresh
-        />
+    <div className="min-h-screen relative">
+      <Particles
+        className="fixed inset-0 z-0"
+        quantity={250}
+        ease={80}
+        color={color}
+        size={0.8}
+        refresh
+      />
+      <div className="relative z-10">
         <Navigation />
         <main className="container mx-auto">
           <Outlet />
         </main>
       </div>
-    </>
+    </div>
   );
 }
 
