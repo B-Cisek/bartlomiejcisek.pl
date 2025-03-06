@@ -1,0 +1,16 @@
+services:
+  app:
+    build: .
+    ports:
+      - "80:80"
+    restart: always
+#    labels:
+#      - traefik.enable=true
+#      - traefik.http.routers.frontend-capture-live.rule=Host(`${}`)
+#      - traefik.http.routers.frontend-capture-live.entrypoints=web
+#    networks:
+#      - traefik
+
+#networks:
+#  traefik:
+#    external: true
