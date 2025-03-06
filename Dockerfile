@@ -19,8 +19,11 @@ RUN npm run build
 # Use a lightweight web server to serve the app
 FROM nginx:stable-alpine
 
-
+# Copy the main Nginx configuration
 COPY .docker/nginx/nginx.conf /etc/nginx/nginx.conf
+
+# Copy the site-specific Nginx configuration
+COPY .docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # Copy the built files from the build step
 COPY --from=build /app/dist /usr/share/nginx/html
