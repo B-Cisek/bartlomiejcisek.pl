@@ -7,7 +7,7 @@ function Experience() {
 
   const experienceItems = t('sections.experience.experienceItems', {
     returnObjects: true,
-  }) as any[];
+  }) as { title: string; subtitle: string; description: string }[];
 
   const experienceData = experienceItems.map(
     (

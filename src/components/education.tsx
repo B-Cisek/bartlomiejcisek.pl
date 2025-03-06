@@ -8,7 +8,7 @@ function Education() {
 
   const educationItems = t('sections.education.educationItems', {
     returnObjects: true,
-  }) as any[];
+  }) as { title: string; subtitle: string; description: string }[];
 
   const educationData = educationItems.map(
     (

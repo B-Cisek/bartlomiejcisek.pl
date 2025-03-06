@@ -59,5 +59,10 @@
       "messagePlaceholder": "Wpisz swoją wiadomość",
       "submit": "Wyślij"
     }
+  },
+  "tooltip": {
+    "home": "Strona główna",
+    "projects": "Projekty",
+    "contact": "Kontakt"
   }
 }

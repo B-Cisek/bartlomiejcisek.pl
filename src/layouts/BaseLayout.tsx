@@ -1,8 +1,8 @@
 import { Navigation } from '@/components/navigation.tsx';
 import { Outlet } from 'react-router-dom';
 import { Particles } from '@/components/magicui/particles.tsx';
-import { useTheme } from '@/components/theme-provider.tsx';
 import { useEffect, useState } from 'react';
+import { useTheme } from '@/hooks/useTheme.ts';
 
 function BaseLayout() {
   const { theme } = useTheme();

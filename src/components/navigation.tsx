@@ -13,6 +13,7 @@ import { cn } from '@/lib/utils';
 import { Dock, DockIcon } from '@/components/magicui/dock';
 import { Link } from 'react-router-dom';
 import LanguageSwitcher from '@/components/language-switcher.tsx';
+import { useTranslation } from 'react-i18next';
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -37,33 +38,35 @@ const Icons = {
   ),
 };
 
-const data = {
-  navbar: [
-    { href: '/', icon: HomeIcon, label: 'Home' },
-    { href: '/projects', icon: FolderKanban, label: 'Projects' },
-    { href: '/contact', icon: Contact, label: 'Contact' },
-  ],
-  contact: {
-    social: {
-      GitHub: {
-        name: 'GitHub',
-        url: 'https://github.com/B-Cisek',
-        icon: Icons.github,
-      },
-      LinkedIn: {
-        name: 'LinkedIn',
-        url: 'https://www.linkedin.com/in/bartlomiej-cisek/',
-        icon: Icons.linkedin,
+export function Navigation() {
+  const { t } = useTranslation();
+
+  const data = {
+    navbar: [
+      { href: '/', icon: HomeIcon, label: t('tooltip.home') },
+      { href: '/projects', icon: FolderKanban, label: t('tooltip.projects') },
+      { href: '/contact', icon: Contact, label: t('tooltip.contact') },
+    ],
+    contact: {
+      social: {
+        GitHub: {
+          name: 'GitHub',
+          url: 'https://github.com/B-Cisek',
+          icon: Icons.github,
+        },
+        LinkedIn: {
+          name: 'LinkedIn',
+          url: 'https://www.linkedin.com/in/bartlomiej-cisek/',
+          icon: Icons.linkedin,
+        },
       },
     },
-  },
-};
+  };
 
-export function Navigation() {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center sticky top-0 z-50">
       <TooltipProvider>
-        <Dock direction="middle">
+        <Dock direction="middle" iconDistance={0}>
           {data.navbar.map((item) => (
             <DockIcon key={item.label}>
               <Tooltip>

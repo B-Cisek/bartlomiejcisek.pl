@@ -58,5 +58,10 @@
       "messagePlaceholder": "Enter your message",
       "submit": "Send"
     }
+  },
+  "tooltip": {
+    "home": "Home",
+    "projects": "Projects",
+    "contact": "Contact"
   }
 }
