@@ -57,7 +57,8 @@
       "emailPlaceholder": "Wpisz swój email",
       "message": "Wiadomość",
       "messagePlaceholder": "Wpisz swoją wiadomość",
-      "submit": "Wyślij"
+      "submit": "Wyślij",
+      "successMessage": "Wiadomość wysłana pomyślnie!"
     }
   },
   "tooltip": {

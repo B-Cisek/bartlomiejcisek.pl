@@ -14,6 +14,7 @@ import { Dock, DockIcon } from '@/components/magicui/dock';
 import { Link } from 'react-router-dom';
 import LanguageSwitcher from '@/components/language-switcher.tsx';
 import { useTranslation } from 'react-i18next';
+import { BorderBeam } from '@/components/magicui/border-beam.tsx';
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -131,6 +132,12 @@ export function Navigation() {
               </TooltipContent>
             </Tooltip>
           </DockIcon>
+          <BorderBeam
+            duration={6}
+            size={50}
+            colorFrom="#3b82f6"
+            colorTo="#06b6d4"
+          />
         </Dock>
       </TooltipProvider>
     </div>

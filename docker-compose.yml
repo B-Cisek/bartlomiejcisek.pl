@@ -4,7 +4,7 @@ services:
     restart: always
     labels:
       - traefik.enable=true
-      - traefik.http.routers.frontend-capture-live.rule=Host(``)
+      - traefik.http.routers.frontend-capture-live.rule=Host(`bartlomiejcisek.pl`)
       - traefik.http.routers.frontend-capture-live.entrypoints=web
     networks:
       - traefik

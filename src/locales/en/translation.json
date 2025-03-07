@@ -48,7 +48,7 @@
   },
   "contact": {
     "title": "Get in touch",
-    "subtitle": "Have a question or want to work together?<br/>Fill out the form below or send me an email and I'll get back to you as soon as possible.",
+    "subtitle": "Have a question or want to work together?<br/>Fill out the form below and I'll get back to you as soon as possible.",
     "form": {
       "name": "Name",
       "namePlaceholder": "Enter your name",
@@ -56,7 +56,8 @@
       "emailPlaceholder": "Enter your email",
       "message": "Message",
       "messagePlaceholder": "Enter your message",
-      "submit": "Send"
+      "submit": "Send",
+      "successMessage": "Message sent successfully!"
     }
   },
   "tooltip": {

@@ -6,7 +6,7 @@ import Skills from '@/components/skills.tsx';
 
 function Home() {
   return (
-    <div className="flex flex-col max-w-4xl mx-auto px-4 py-16 gap-14">
+    <div className="flex flex-col max-w-4xl mx-auto px-4 py-12 sm:py-16 gap-14">
       <Hero />
       <AboutMe />
       <Education />
