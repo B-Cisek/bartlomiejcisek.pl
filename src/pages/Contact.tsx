@@ -50,10 +50,7 @@ function Contact() {
     setLoading(true);
 
     try {
-      await axios.post(
-        import.meta.env.VITE_APP_API_URL + '/api/contact',
-        values
-      );
+      await axios.post('https://api.bartlomiejcisek.pl/api/contact', values);
       setLoading(false);
       setSubmitted(true);
     } catch (error) {
