@@ -58,6 +58,22 @@
       "messagePlaceholder": "Enter your message",
       "submit": "Send",
       "successMessage": "Message sent successfully!"
+    },
+    "validation": {
+      "name": {
+        "required": "Name is required",
+        "max": "Name must be at most 60 characters"
+      },
+      "email": {
+        "required": "Email is required",
+        "email": "Invalid email address",
+        "max": "Email must be at most 120 characters"
+      },
+      "message": {
+        "required": "Message is required",
+        "max": "Message must be at most 1000 characters"
+      },
+     "error": "Something went wrong. Please try again later."
     }
   },
   "tooltip": {

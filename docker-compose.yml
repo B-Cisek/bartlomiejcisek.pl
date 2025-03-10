@@ -1,10 +1,14 @@
 services:
   app:
-    build: .
-    restart: always
+    build:
+      context: .
+      args:
+        VITE_APP_API_URL: ${VITE_APP_API_URL}
+        VITE_APP_RECAPTCHA_SITE_KEY: ${VITE_APP_RECAPTCHA_SITE_KEY}
+    restart: unless-stopped
     labels:
       - traefik.enable=true
-      - traefik.http.routers.frontend-capture-live.rule=Host(`bartlomiejcisek.pl`)
+      - traefik.http.routers.frontend-capture-live.rule=Host(`${TRAEFIK_HOST}`)
       - traefik.http.routers.frontend-capture-live.entrypoints=web
     networks:
       - traefik

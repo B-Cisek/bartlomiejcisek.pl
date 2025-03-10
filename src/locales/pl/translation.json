@@ -59,6 +59,22 @@
       "messagePlaceholder": "Wpisz swoją wiadomość",
       "submit": "Wyślij",
       "successMessage": "Wiadomość wysłana pomyślnie!"
+    },
+    "validation": {
+      "name": {
+        "required": "Nazwa jest wymagana",
+        "max": "Nazwa musi mieć maksymalnie 60 znaków"
+      },
+      "email": {
+        "required": "Email jest wymagany",
+        "email": "Nieprawidłowy adres email",
+        "max": "Email musi mieć maksymalnie 120 znaków"
+      },
+      "message": {
+        "required": "Wiadomość jest wymagana",
+        "max": "Wiadomość musi mieć maksymalnie 1000 znaków"
+      },
+      "error": "Coś poszło nie tak. Spróbuj ponownie później."
     }
   },
   "tooltip": {

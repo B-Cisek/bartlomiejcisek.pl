@@ -1,6 +1,12 @@
 # Use official Node.js image as a build step
 FROM node:18-alpine AS build
 
+# Set environment variables
+ARG VITE_APP_API_URL
+ENV VITE_APP_API_URL=${VITE_APP_API_URL}
+ARG VITE_APP_RECAPTCHA_SITE_KEY
+ENV VITE_APP_RECAPTCHA_SITE_KEY=${VITE_APP_RECAPTCHA_SITE_KEY}
+
 # Set working directory
 WORKDIR /app
 
