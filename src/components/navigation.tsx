@@ -94,8 +94,10 @@ export function Navigation() {
             <DockIcon key={name}>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link
-                    to={social.url}
+                  <a
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={social.name}
                     className={cn(
                       buttonVariants({ variant: 'ghost', size: 'icon' }),
@@ -103,7 +105,7 @@ export function Navigation() {
                     )}
                   >
                     <social.icon className="size-4" />
-                  </Link>
+                  </a>
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>{name}</p>
