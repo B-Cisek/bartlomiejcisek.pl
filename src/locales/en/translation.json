@@ -10,7 +10,7 @@
     },
     "aboutMe": {
       "title": "About Me",
-      "content": "I am an open-minded and ambitious PHP developer with over two years of experience in developing and managing web applications. I am constantly striving for professional growth, eagerly exploring new technologies, and taking on challenging projects. My goal is to continuously expand my programming skills and develop into a versatile software development specialist."
+      "content": "Backend Developer with over 3 years of experience in building web applications. I enjoy writing clean, well-structured code and continuously improving my skills. I am interested in new technologies and challenges that help me grow as a developer and create better solutions."
     },
     "education": {
       "title": "Education",
@@ -30,6 +30,11 @@
     "experience": {
       "title": "Experience",
       "experienceItems": [
+        {
+          "title": "PHP Developer",
+          "subtitle": "Innovation Software, Wrocław (2025-03 - 2026-01)",
+          "description": "Development and maintenance of web applications based on the Symfony framework, Designing and implementing APIs, Working with databases (MySQL/PostgreSQL), Exposure to microservices architecture and queue systems (RabbitMQ), Frontend work using Vue 3."
+        },
         {
           "title": "PHP Developer",
           "subtitle": "ModulesGarden, Rzeszów (2022-11 - 2025-03)",
@@ -73,7 +78,7 @@
         "required": "Message is required",
         "max": "Message must be at most 1000 characters"
       },
-     "error": "Something went wrong. Please try again later."
+      "error": "Something went wrong. Please try again later."
     }
   },
   "tooltip": {

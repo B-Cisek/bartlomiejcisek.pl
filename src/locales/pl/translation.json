@@ -10,7 +10,7 @@
     },
     "aboutMe": {
       "title": "O mnie",
-      "content": "Jestem otwartym na nowe doświadczenia i ambitnym PHP developerem z ponad 2-letnim doświadczeniem w tworzeniu oraz zarządzaniu aplikacjami webowymi. Nieustannie dążę do rozwoju zawodowego, chętnie eksploruję nowe technologie i podejmuję ambitne wyzwania. Moim celem jest stałe poszerzanie kompetencji programistycznych oraz rozwój w kierunku wszechstronnego specjalisty w dziedzinie tworzenia oprogramowania."
+      "content": "Backend Developer z ponad 3 latami doświadczenia w tworzeniu aplikacji webowych. Lubię pisać czysty, dobrze zaprojektowany kod oraz stale rozwijać swoje umiejętności. Interesują mnie nowe technologie i wyzwania, które pozwalają mi rosnąć jako programista oraz tworzyć coraz lepsze rozwiązania."
     },
 
     "education": {
@@ -31,6 +31,11 @@
     "experience": {
       "title": "Doświadczenie",
       "experienceItems": [
+        {
+          "title": "PHP Developer",
+          "subtitle": "Innovation Software, Wrocław (2025-03 - 2026-01)",
+          "description": "Tworzenie i rozwój aplikacji webowych w oparciu o framework Symfony, Projektowanie i implementacja API, Praca z bazami danych (MySQL/PostgreSQL), Styczność z architekturą mikroserwisową oraz systemami kolejek (RabbitMQ), Prace frontendowe z wykorzystaniem Vue 3"
+        },
         {
           "title": "PHP Developer",
           "subtitle": "ModulesGarden, Rzeszów (2022-11 - 2025-03)",
