@@ -24,10 +24,10 @@ function Education() {
 
   return (
     <section id="education">
-      <BlurFade delay={0.25 * 3.5}>
+      <BlurFade delay={0.05 * 3.5}>
         <SectionHeading>{t('sections.education.title')}</SectionHeading>
       </BlurFade>
-      <BlurFade delay={0.25 * 3.5}>
+      <BlurFade delay={0.05 * 3.5}>
         <TimeLine data={educationData} />
       </BlurFade>
     </section>

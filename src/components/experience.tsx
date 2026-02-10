@@ -1,6 +1,7 @@
 import SectionHeading from '@/components/section-heading.tsx';
 import { useTranslation } from 'react-i18next';
 import TimeLine from '@/components/time-line.tsx';
+import { BlurFade } from './magicui/blur-fade';
 
 function Experience() {
   const { t } = useTranslation();
@@ -23,8 +24,10 @@ function Experience() {
 
   return (
     <section id="experience">
-      <SectionHeading>{t('sections.experience.title')}</SectionHeading>
-      <TimeLine data={experienceData} />
+      <BlurFade delay={0.05 * 4}>
+        <SectionHeading>{t('sections.experience.title')}</SectionHeading>
+        <TimeLine data={experienceData} />
+      </BlurFade>
     </section>
   );
 }

@@ -88,6 +88,11 @@
       "error": "Coś poszło nie tak. Spróbuj ponownie później."
     }
   },
+  "projects": {
+    "title": "Projekty",
+    "demo": "Demo",
+    "github": "GitHub"
+  },
   "tooltip": {
     "home": "Strona główna",
     "projects": "Projekty",

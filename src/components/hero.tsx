@@ -20,12 +20,12 @@ function Hero() {
       >
         {t('sections.hero.title')}
       </TypingAnimation>
-      <BlurFade delay={0.25 * 1.5} className="mt-4">
+      <BlurFade delay={0.05 * 1.5} className="mt-4">
         <span className="text-pretty text-xl tracking-tighter sm:text-2xl xl:text-3xl">
           {t('sections.hero.subtitle')}
         </span>
       </BlurFade>
-      <BlurFade delay={0.25 * 2} className="mt-10">
+      <BlurFade delay={0.05 * 2} className="mt-10">
         <div className=" flex gap-4">
           <InteractiveHoverButton
             onClick={() => redirectTo('contact')}

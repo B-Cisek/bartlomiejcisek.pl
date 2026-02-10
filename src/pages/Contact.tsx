@@ -140,14 +140,14 @@ function Contact() {
 
   return (
     <div className="flex flex-col max-w-4xl mx-auto mt-8 sm:mt-16 px-4">
-      <BlurFade delay={0.15} inView>
+      <BlurFade delay={0.05} inView>
         <h2 className="text-3xl font-bold tracking-tight sm:text-5xl xl:text-6xl bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 bg-clip-text text-transparent">
           {t('contact.title')}
         </h2>
       </BlurFade>
-      <BlurFade delay={0.15 * 1.5} inView>
+      <BlurFade delay={0.05 * 1.5} inView>
         <MagicCard
-          className="rounded-xl mt-8 sm:mt-12 py-6"
+          className="rounded-xl mt-6 py-6"
           gradientColor={theme === 'dark' ? '#262626' : '#f5f5f5'}
         >
           {isSubmitted ? (

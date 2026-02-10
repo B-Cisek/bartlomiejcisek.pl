@@ -87,6 +87,11 @@
       "error": "Something went wrong. Please try again later."
     }
   },
+  "projects": {
+    "title": "Projects",
+    "demo": "Demo",
+    "github": "GitHub"
+  },
   "tooltip": {
     "home": "Home",
     "projects": "Projects",
