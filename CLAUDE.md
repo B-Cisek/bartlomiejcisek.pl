@@ -28,6 +28,7 @@ npm run format
 ## Project Architecture
 
 ### Tech Stack
+
 - **Build Tool**: Vite 6.x with React plugin
 - **Framework**: React 19 with TypeScript
 - **Styling**: TailwindCSS 4.x with CSS variables for theming
@@ -76,6 +77,7 @@ src/
 ### Key Architectural Patterns
 
 **Internationalization (i18n)**
+
 - Default language: Polish (`pl`)
 - Supported languages: English (`en`), Polish (`pl`)
 - Language detection: localStorage → browser navigator
@@ -83,18 +85,21 @@ src/
 - Usage: `const { t } = useTranslation()` hook
 
 **Theming**
+
 - Default theme: dark
 - Storage key: `ui-theme` in localStorage
 - Theme provider wraps entire app in `main.tsx`
 - CSS variables defined in TailwindCSS config
 
 **Routing**
+
 - All routes wrapped in `<BaseLayout />` for consistent layout
 - Routes lazy-loaded for code-splitting
 - Loading fallback: animated "Loading..." text
 - Current routes: `/` (home), `/contact`, `/projects`
 
 **UI Component Library**
+
 - Primary: Magic UI components from `src/components/magicui/` (blur-fade, border-beam, dock, particles, interactive-hover-button)
 - Forms: shadcn/ui components from `src/components/ui/` (button, input, textarea, card, form, etc.)
 - Config: `components.json` for shadcn/ui (New York style, zinc base color)
@@ -102,6 +107,7 @@ src/
 - Icons: lucide-react
 
 **Contact Form**
+
 - Google reCAPTCHA v3 integration
 - reCAPTCHA script loaded/cleaned up in useEffect
 - Form validation: Zod schemas with react-hook-form
@@ -122,10 +128,12 @@ Access in code: `import.meta.env.VITE_APP_*`
 ## Docker Deployment
 
 Build and deployment uses multi-stage Dockerfile:
+
 1. Build stage: Node.js 18 Alpine, runs `npm run build`
 2. Runtime stage: Nginx Alpine serving static files from `/usr/share/nginx/html`
 
 Docker Compose with Traefik reverse proxy:
+
 - Service name: `app`
 - Network: external `traefik` network
 - Build args: `VITE_APP_API_URL`, `VITE_APP_RECAPTCHA_SITE_KEY`
@@ -145,10 +153,12 @@ docker-compose up --build
 ## Adding New Components
 
 **Magic UI Components** (primary UI library):
+
 - Add visual/animated components to `src/components/magicui/`
 - Used for animations, effects, and interactive elements
 
 **shadcn/ui Components** (for forms):
+
 - When adding shadcn/ui form components, ensure `components.json` configuration is preserved:
   - Style: `new-york`
   - Base color: `zinc`
@@ -158,6 +168,7 @@ docker-compose up --build
 ## Translation Updates
 
 When adding translatable content:
+
 1. Add keys to both `src/locales/en/translation.json` and `src/locales/pl/translation.json`
 2. Use `t('key.path')` for simple strings
 3. Use `<Trans i18nKey="key" components={{ br: <br /> }} />` for JSX content
@@ -165,8 +176,9 @@ When adding translatable content:
 ## Form Validation
 
 Forms use Zod schemas with i18n validation messages:
+
 ```tsx
 const schema = z.object({
-  field: z.string().nonempty({ message: t('validation.required') })
+  field: z.string().nonempty({ message: t('validation.required') }),
 });
 ```

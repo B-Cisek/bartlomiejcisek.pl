@@ -17,7 +17,11 @@ export default defineConfig({
         manualChunks: {
           react: ['react', 'react-dom', 'react-router-dom'],
           motion: ['motion'],
-          i18n: ['i18next', 'i18next-browser-languagedetector', 'react-i18next'],
+          i18n: [
+            'i18next',
+            'i18next-browser-languagedetector',
+            'react-i18next',
+          ],
           radix: [
             '@radix-ui/react-avatar',
             '@radix-ui/react-dropdown-menu',
