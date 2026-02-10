@@ -48,7 +48,13 @@
       ]
     },
     "skills": {
-      "title": "Technical Skills"
+      "title": "Technical Skills",
+      "levels": {
+        "beginner": "Beginner",
+        "intermediate": "Intermediate",
+        "advanced": "Advanced",
+        "expert": "Expert"
+      }
     }
   },
   "contact": {

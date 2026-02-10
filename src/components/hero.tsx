@@ -2,6 +2,7 @@ import { BlurFade } from '@/components/magicui/blur-fade.tsx';
 import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-button.tsx';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { TypingAnimation } from './ui/typing-animation';
 
 function Hero() {
   const navigate = useNavigate();
@@ -13,17 +14,18 @@ function Hero() {
 
   return (
     <section id="hero">
-      <BlurFade delay={0.25} inView>
-        <h2 className="text-2xl font-bold tracking-tight sm:text-4xl xl:text-5xl">
-          {t('sections.hero.title')}
-        </h2>
-      </BlurFade>
-      <BlurFade delay={0.25 * 1.5} inView className="mt-4">
+      <TypingAnimation
+        typeSpeed={50}
+        className="text-2xl font-bold tracking-tight sm:text-4xl xl:text-5xl"
+      >
+        {t('sections.hero.title')}
+      </TypingAnimation>
+      <BlurFade delay={0.25 * 1.5} className="mt-4">
         <span className="text-pretty text-xl tracking-tighter sm:text-2xl xl:text-3xl">
           {t('sections.hero.subtitle')}
         </span>
       </BlurFade>
-      <BlurFade delay={0.25 * 2} inView className="mt-10">
+      <BlurFade delay={0.25 * 2} className="mt-10">
         <div className=" flex gap-4">
           <InteractiveHoverButton
             onClick={() => redirectTo('contact')}

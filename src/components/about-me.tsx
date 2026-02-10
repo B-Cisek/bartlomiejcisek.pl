@@ -7,10 +7,10 @@ function AboutMe() {
 
   return (
     <section id="about-me">
-      <BlurFade delay={0.25 * 2.5} direction="down" inView>
+      <BlurFade delay={0.25 * 2.5} direction="down">
         <SectionHeading>{t('sections.aboutMe.title')}</SectionHeading>
       </BlurFade>
-      <BlurFade delay={0.25 * 3} direction="down" inView>
+      <BlurFade delay={0.25 * 3} direction="down">
         <p className="text-lg">{t('sections.aboutMe.content')}</p>
       </BlurFade>
     </section>

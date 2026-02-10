@@ -1,12 +1,31 @@
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
 import SectionHeading from '@/components/section-heading.tsx';
 import { useTranslation } from 'react-i18next';
+import {
+  SiPhp,
+  SiLaravel,
+  SiSymfony,
+  SiHtml5,
+  SiTailwindcss,
+  SiJavascript,
+  SiTypescript,
+  SiVuedotjs,
+  SiNuxtdotjs,
+  SiReact,
+  SiNodedotjs,
+  SiGit,
+  SiDocker,
+  SiLinux,
+} from 'react-icons/si';
+
+import { PiFileSqlDuotone } from 'react-icons/pi';
+import { Layers, KeyRound, Globe } from 'lucide-react';
+import { type ReactNode } from 'react';
+import SkillCard, { Proficiency } from './skill-card';
 
 type Skill = {
   name: string;
-  proficiency: 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
-  proficiencyValue: number;
+  icon: ReactNode;
+  proficiency: Proficiency;
 };
 
 function Skills() {
@@ -14,74 +33,108 @@ function Skills() {
 
   const skills: Skill[] = [
     {
-      name: 'PHP (OOP, SOLID, Design Patterns)',
-      proficiency: 'Advanced',
-      proficiencyValue: 75,
+      name: 'PHP',
+      icon: <SiPhp className="w-9 h-9 " />,
+      proficiency: 'advanced',
     },
-    { name: 'Laravel', proficiency: 'Advanced', proficiencyValue: 75 },
-    { name: 'Symfony', proficiency: 'Advanced', proficiencyValue: 75 },
-    { name: 'HTML', proficiency: 'Advanced', proficiencyValue: 75 },
+    {
+      name: 'Laravel',
+      icon: <SiLaravel className="w-8 h-8" />,
+      proficiency: 'advanced',
+    },
+    {
+      name: 'Symfony',
+      icon: <SiSymfony className="w-8 h-8" />,
+      proficiency: 'advanced',
+    },
+    {
+      name: 'HTML',
+      icon: <SiHtml5 className="w-8 h-8" />,
+      proficiency: 'advanced',
+    },
+    {
+      name: 'SQL',
+      icon: <PiFileSqlDuotone className="w-8 h-8" />,
+      proficiency: 'advanced',
+    },
+    {
+      name: 'JavaScript',
+      icon: <SiJavascript className="w-7 h-7" />,
+      proficiency: 'advanced',
+    },
+    {
+      name: 'Vue 3',
+      icon: <SiVuedotjs className="w-8 h-8" />,
+      proficiency: 'advanced',
+    },
+    {
+      name: 'REST API',
+      icon: <Globe className="w-8 h-8" />,
+      proficiency: 'advanced',
+    },
     {
       name: 'CSS (Tailwind CSS)',
-      proficiency: 'Intermediate',
-      proficiencyValue: 50,
+      icon: <SiTailwindcss className="w-8 h-8" />,
+      proficiency: 'intermediate',
     },
-    { name: 'JavaScript', proficiency: 'Advanced', proficiencyValue: 75 },
-    { name: 'TypeScript', proficiency: 'Intermediate', proficiencyValue: 50 },
-    { name: 'SQL', proficiency: 'Advanced', proficiencyValue: 75 },
-    { name: 'Vue 3', proficiency: 'Advanced', proficiencyValue: 75 },
-    { name: 'Nuxt 3', proficiency: 'Intermediate', proficiencyValue: 50 },
-    { name: 'React', proficiency: 'Beginner', proficiencyValue: 25 },
-    { name: 'Node.js', proficiency: 'Beginner', proficiencyValue: 25 },
+    {
+      name: 'TypeScript',
+      icon: <SiTypescript className="w-7 h-7" />,
+      proficiency: 'intermediate',
+    },
+    {
+      name: 'Nuxt 4',
+      icon: <SiNuxtdotjs className="w-8 h-8" />,
+      proficiency: 'intermediate',
+    },
+    {
+      name: 'JWT & OAuth',
+      icon: <KeyRound className="w-7 h-7" />,
+      proficiency: 'intermediate',
+    },
     {
       name: 'Git (GitHub, GitLab)',
-      proficiency: 'Intermediate',
-      proficiencyValue: 50,
+      icon: <SiGit className="w-8 h-8" />,
+      proficiency: 'intermediate',
     },
     {
-      name: 'Docker & Docker Compose',
-      proficiency: 'Intermediate',
-      proficiencyValue: 50,
+      name: 'Linux',
+      icon: <SiLinux className="w-8 h-8" />,
+      proficiency: 'intermediate',
     },
-    { name: 'Linux', proficiency: 'Intermediate', proficiencyValue: 50 },
-    { name: 'CQRS', proficiency: 'Beginner', proficiencyValue: 25 },
-    { name: 'JWT & OAuth', proficiency: 'Intermediate', proficiencyValue: 50 },
     {
-      name: 'REST API Architecture',
-      proficiency: 'Advanced',
-      proficiencyValue: 75,
+      name: 'Docker',
+      icon: <SiDocker className="w-8 h-8" />,
+      proficiency: 'intermediate',
+    },
+    {
+      name: 'React',
+      icon: <SiReact className="w-8 h-8" />,
+      proficiency: 'beginner',
+    },
+    {
+      name: 'Node.js',
+      icon: <SiNodedotjs className="w-8 h-8" />,
+      proficiency: 'beginner',
+    },
+    {
+      name: 'CQRS',
+      icon: <Layers className="w-8 h-8" />,
+      proficiency: 'beginner',
     },
   ];
-
-  const getProficiencyColor = (proficiency: string) => {
-    switch (proficiency) {
-      case 'Beginner':
-        return 'bg-blue-500';
-      case 'Intermediate':
-        return 'bg-green-500';
-      case 'Advanced':
-        return 'bg-purple-500';
-      case 'Expert':
-        return 'bg-amber-500';
-      default:
-        return 'bg-gray-500';
-    }
-  };
 
   return (
     <section id="skills">
       <SectionHeading>{t('sections.skills.title')}</SectionHeading>
       <div className="grid gap-6 md:grid-cols-2">
-        {skills.map((skill) => (
-          <div key={skill.name} className="space-y-2">
-            <div className="flex justify-between items-center">
-              <span className="font-medium">{skill.name}</span>
-              <Badge className={getProficiencyColor(skill.proficiency)}>
-                {skill.proficiency}
-              </Badge>
-            </div>
-            <Progress value={skill.proficiencyValue} className="h-2" />
-          </div>
+        {skills.map((skill, index) => (
+          <SkillCard
+            key={index}
+            name={skill.name}
+            icon={skill.icon}
+            proficiency={skill.proficiency}
+          />
         ))}
       </div>
     </section>

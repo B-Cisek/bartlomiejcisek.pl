@@ -2,9 +2,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { BlurFade } from '@/components/magicui/blur-fade.tsx';
-import { BorderBeam } from '@/components/magicui/border-beam.tsx';
 import {
-  Card,
   CardContent,
   CardDescription,
   CardHeader,
@@ -24,6 +22,8 @@ import {
   FormMessage,
 } from '@/components/ui/form.tsx';
 import axios from 'axios';
+import { MagicCard } from '@/components/magicui/magic-card';
+import { useTheme } from '@/hooks/useTheme';
 
 const getFormSchema = (t: (key: string) => string) =>
   z.object({
@@ -44,6 +44,8 @@ const getFormSchema = (t: (key: string) => string) =>
 
 function Contact() {
   const { t } = useTranslation();
+  const { theme } = useTheme();
+
   const [isLoading, setLoading] = useState(false);
   const [isSubmitted, setSubmitted] = useState(false);
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
@@ -144,7 +146,10 @@ function Contact() {
         </h2>
       </BlurFade>
       <BlurFade delay={0.15 * 1.5} inView>
-        <Card className="relative overflow-hidden mt-8 sm:mt-12">
+        <MagicCard
+          className="rounded-xl mt-8 sm:mt-12 py-6"
+          gradientColor={theme === 'dark' ? '#262626' : '#f5f5f5'}
+        >
           {isSubmitted ? (
             <div className="text-center text-lg font-semibold text-green-500">
               {t('contact.form.successMessage')}
@@ -152,7 +157,7 @@ function Contact() {
           ) : (
             <>
               <CardHeader>
-                <CardDescription className="sm:text-lg">
+                <CardDescription className="sm:text-lg pb-6">
                   <Trans
                     i18nKey="contact.subtitle"
                     components={{ br: <br /> }}
@@ -238,14 +243,7 @@ function Contact() {
               </CardContent>
             </>
           )}
-
-          <BorderBeam
-            duration={8}
-            size={200}
-            colorFrom="#3b82f6"
-            colorTo="#06b6d4"
-          />
-        </Card>
+        </MagicCard>
       </BlurFade>
     </div>
   );

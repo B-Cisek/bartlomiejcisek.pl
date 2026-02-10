@@ -16,10 +16,11 @@ function BaseLayout() {
     <div className="min-h-screen relative">
       <Particles
         className="fixed inset-0 z-0"
-        quantity={250}
+        quantity={40}
         ease={80}
         color={color}
-        size={0.8}
+        size={0.5}
+        staticity={40}
         refresh
       />
       <div className="relative z-10">
