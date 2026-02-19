@@ -6,7 +6,7 @@ import { TypingAnimation } from './ui/typing-animation';
 
 function Hero() {
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   function redirectTo(page: 'contact' | 'projects') {
     navigate(`/${page}`);
@@ -15,6 +15,7 @@ function Hero() {
   return (
     <section id="hero">
       <TypingAnimation
+        key={i18n.language}
         typeSpeed={50}
         className="text-2xl font-bold tracking-tight sm:text-4xl xl:text-5xl"
       >
