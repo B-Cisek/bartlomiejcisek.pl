@@ -36,7 +36,7 @@ export const projects: Record<'en' | 'pl', Project[]> = {
       description:
         'Aplikacja do rezerwacji miejsc w kinie, umożliwiająca przeglądanie repertuaru, wybór seansu i zakup biletów przez intuicyjny interfejs.',
       screenshot_url: '/screenshot/cinema-app.png',
-      technologies: ['Laravel', 'Vue', 'Inertia.js', 'Redis', 'PostgreSQL'],
+      technologies: ['Laravel', 'React', 'Inertia.js', 'Redis', 'PostgreSQL'],
       github_url: 'https://github.com/B-Cisek/cinema-booking-app',
       demo_url: 'https://cinema.bartlomiejcisek.pl/',
     },
@@ -68,7 +68,7 @@ export const projects: Record<'en' | 'pl', Project[]> = {
       description:
         'A cinema seat booking app that lets users browse the movie schedule, select a screening, and purchase tickets through an intuitive interface.',
       screenshot_url: '/screenshot/cinema-app.png',
-      technologies: ['Laravel', 'Vue', 'Inertia.js', 'Redis', 'PostgreSQL'],
+      technologies: ['Laravel', 'React', 'Inertia.js', 'Redis', 'PostgreSQL'],
       github_url: 'https://github.com/B-Cisek/cinema-booking-app',
       demo_url: 'https://cinema.bartlomiejcisek.pl/',
     },
